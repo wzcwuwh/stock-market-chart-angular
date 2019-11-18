@@ -1,0 +1,62 @@
+.card{
+  height: 370px;
+  width: 400px;
+}
+  
+.social_icon span{
+  font-size: 60px;
+  margin-left: 10px;
+  color: #FFC312;
+}
+  
+.social_icon span:hover{
+  color: white;
+  cursor: pointer;
+}
+  
+.social_icon{
+  position: absolute;
+  right: 20px;
+  top: -45px;
+}
+  
+.input-group-prepend span{
+  width: 50px;
+}
+  
+.remember{
+  color: white;
+}
+  
+.remember input{
+  width: 20px;
+  height: 20px;
+  margin-left: 15px;
+  margin-right: 5px;
+}
+  
+.links{
+  color: white;
+}
+  
+.links a{
+  margin-left: 4px;
+}
+
+.signupLink{
+  text-decoration: underline;
+  color: #FFC312;
+}
+
+.forPwdLink{
+  text-decoration: underline;
+  color: #FFC312;
+}
+
+.loginWarn{
+  width: 250px;
+  height: 38px;
+  line-height: 38px;
+  font-size: 20px;
+  text-align: left;
+}

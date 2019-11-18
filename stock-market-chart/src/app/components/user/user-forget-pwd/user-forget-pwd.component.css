@@ -1,0 +1,11 @@
+.card-header h4{
+  color: white;
+  }
+
+  .regiWarn{
+    width: 250px;
+    height: 38px;
+    line-height: 38px;
+    font-size: 20px;
+    text-align: left;
+  }
