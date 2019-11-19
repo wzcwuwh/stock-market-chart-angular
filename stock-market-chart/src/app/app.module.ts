@@ -12,6 +12,13 @@ import { UserResetPwdComponent } from './components/user/user-reset-pwd/user-res
 import { UserForgetPwdComponent } from './components/user/user-forget-pwd/user-forget-pwd.component';
 import {EncryptService} from './services/encrypt.service'
 import {EmailValidationService} from './services/email-validation.service';
+import { UserLandingPageComponent } from './components/user/user-landing-page/user-landing-page.component';
+import { UserComparisonChartsComponent } from './components/user/user-comparison-charts/user-comparison-charts.component';
+import { AdminLandingPageComponent } from './components/admin/admin-landing-page/admin-landing-page.component';
+import { AdminImportExcelComponent } from './components/admin/admin-import-excel/admin-import-excel.component';
+import { AdminUploadSummaryComponent } from './components/admin/admin-upload-summary/admin-upload-summary.component';
+import { AdminCompanyListComponent } from './components/admin/admin-company-list/admin-company-list.component';
+import { AdminCompanyCreateComponent } from './components/admin/admin-company-create/admin-company-create.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +28,14 @@ import {EmailValidationService} from './services/email-validation.service';
     UserSignupPwdComponent,
     UserVeriCodeComponent,
     UserResetPwdComponent,
-    UserForgetPwdComponent
+    UserForgetPwdComponent,
+    UserLandingPageComponent,
+    UserComparisonChartsComponent,
+    AdminLandingPageComponent,
+    AdminImportExcelComponent,
+    AdminUploadSummaryComponent,
+    AdminCompanyListComponent,
+    AdminCompanyCreateComponent
   ],
   imports: [
     BrowserModule,
