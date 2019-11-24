@@ -51,7 +51,11 @@ export class UserSigninComponent implements OnInit {
                 }
               ))
             } else {
-              this.router.navigateByUrl('/user/menu')
+              if(response.data.userType == 'admin'){
+                this.router.navigateByUrl('/admin/land')
+              } else {
+                this.router.navigateByUrl('/user/land')
+              }
             }
           } else {
             let loginWarn = $('#loginWarn')

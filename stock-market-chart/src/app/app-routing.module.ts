@@ -7,6 +7,8 @@ import {UserForgetPwdComponent} from './components/user/user-forget-pwd/user-for
 import {UserResetPwdComponent} from './components/user/user-reset-pwd/user-reset-pwd.component';
 import {UserSignupPwdComponent} from './components/user/user-signup/user-signup-pwd/user-signup-pwd.component';
 import {UserSigninComponent} from './components/user/user-signin/user-signin.component';
+import {UserLandingPageComponent} from './components/user/user-landing-page/user-landing-page.component';
+import {AdminLandingPageComponent} from './components/admin/admin-landing-page/admin-landing-page.component';
 
 const routes: Routes = [
   {
@@ -32,6 +34,14 @@ const routes: Routes = [
   {
     path: 'user/signin',
     component: UserSigninComponent
+  },
+  {
+    path: 'user/land',
+    component: UserLandingPageComponent
+  },
+  {
+    path: 'admin/land',
+    component: AdminLandingPageComponent
   },
   {
     path: '**',

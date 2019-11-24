@@ -1,0 +1,10 @@
+.card{
+  width: 100%;
+}
+.input-group-prepend span{
+  width: 300px;
+}
+.form-group a{
+  font-size: 16px;
+  color: white;
+}
