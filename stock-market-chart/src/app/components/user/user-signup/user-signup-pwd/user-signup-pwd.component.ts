@@ -3,6 +3,7 @@ import {ActivatedRoute} from '@angular/router'
 import {Router} from '@angular/router'
 
 import * as $ from 'jquery'
+import axios from 'axios'
 
 @Component({
   selector: 'app-user-signup-pwd',
@@ -40,7 +41,15 @@ export class UserSignupPwdComponent implements OnInit {
   signup(){
     if(this.policyAgreed && this.password == this.confirmedPwd){
       //TODO: store in DB
-      this.router.navigateByUrl('/user/sign')
+      axios.post('http://localhost:7001/user/signup/pwd',{
+        username: this.username,
+        password: this.password
+      })
+      .then(
+        (response: any) => {
+          this.router.navigateByUrl('/user/sign')
+        }
+      )
     } else {
       var regiWarn = $('#regiWarn')
       regiWarn.addClass('fa fa-times')
