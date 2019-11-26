@@ -4,8 +4,6 @@ import {EncryptService} from '../../../services/encrypt.service'
 
 import * as $ from 'jquery'
 import axios from 'axios'
-import { stringify } from 'querystring';
-import { StringDecoder } from 'string_decoder';
 
 @Component({
   selector: 'app-user-signin',
@@ -24,9 +22,6 @@ export class UserSigninComponent implements OnInit {
   }
 
   userLogin(){
-    // if(this.inputValidation()){
-    //   this.router.navigateByUrl('/user/menu')
-    // }
     this.inputValidation()
   }
 

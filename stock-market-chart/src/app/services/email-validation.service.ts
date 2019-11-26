@@ -20,7 +20,6 @@ export class EmailValidationService {
     } else {
       let flag = regExp.test(username)
       if(flag){
-        //TODO: request from DB
         if(localStorage.getItem(username) != null ) {
           regiWarn.addClass('fa fa-times')
           regiWarn.text(' username already exists')
