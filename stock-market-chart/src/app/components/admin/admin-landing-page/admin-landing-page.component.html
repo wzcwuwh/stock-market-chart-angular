@@ -12,29 +12,31 @@
               <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </form>
           <ul class="navbar-nav mt-2 mt-lg-0">
-              <li class="nav-item active">
-                  <a class="nav-link" href="#"><i class="fa fa-bell-o" aria-hidden="true"></i>Notifications</a>
-              </li>
-              <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown"
-                      aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-o" aria-hidden="true"></i>User</a>
-                  <div class="dropdown-menu" aria-labelledby="dropdownId">
-                      <a class="dropdown-item" href="#">Logout</a>
-                      <a class="dropdown-item" href="#">Profile</a>
-                  </div>
-              </li>
-          </ul>
+            <li class="nav-item active">
+                <a class="nav-link" href="#"><i class="fa fa-bell-o" aria-hidden="true"></i>Notifications</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-o" aria-hidden="true"></i>User</a>
+                <div class="dropdown-menu" aria-labelledby="dropdownId">
+                    <a class="dropdown-item" href="#">Logout</a>
+                    <a class="dropdown-item" href="#">Profile</a>
+                </div>
+            </li>
+        </ul>
       </div>
   </nav>
   <table class="table table-dark table-hover">
       <thead>
           <tr>
-              <th>Import Data</th>
-              <th>Manage Company</th>
-              <th>Manage Exchange</th>
-              <th>Update IPO details</th>
+              <th><a [routerLink]="" class="nav-link" (click)="importDataClick()">Import Data</a></th>
+              <th><a [routerLink]="" class="nav-link" (click)="manageCompanyClick()">Manage Company</a></th>
+              <th><a [routerLink]="" class="nav-link" (click)="manageExchangeClick()">Manage Exchange</a></th>
+              <th><a [routerLink]="" class="nav-link" (click)="updateIPODetailsClick()">Update IPO details</a></th>
           </tr>
       </thead>
   </table>
-  <app-admin-import-excel></app-admin-import-excel>
+  <app-admin-import-excel *ngIf="importExcelShow" (uploadClicked)='uploadClicked($event)'></app-admin-import-excel>
+  <app-admin-upload-summary *ngIf="uploadSummaryShow" (okClicked)='okClicked($event)'></app-admin-upload-summary>
+  <app-admin-company-list *ngIf="companyListShow"></app-admin-company-list>
 </div>
