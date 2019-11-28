@@ -1,0 +1,27 @@
+<div class="table-responsive">
+  <table class="table table-dark table-hover table-bordered">
+    <thead class="theadStyle">
+        <tr>
+            <th>Stock Exchange Name</th>
+            <th>Stock Exchange Brief</th>
+            <th>Stock Exchange Address</th>
+            <th>Operation</th>
+        </tr>
+    </thead>
+    <tbody class="tbodyStyle">
+        <tr *ngFor="let item of stockExchangeList">
+            <td>{{item.stockExchangeName}}</td>
+            <td>{{item.stockExchangeBrief}}</td>
+            <td>{{item.stockExchangeAddress}}</td>
+            <td>
+                <div>
+                  <button type="button" class="btn btn-primary">Edit</button>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+  </div>
+  <div>
+      <input type="submit" value="New Stock Exchange" class="btn login_btn" (click)="createStockExchange()">
+  </div>

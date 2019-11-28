@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 import axios from 'axios'
 
@@ -9,13 +9,17 @@ import axios from 'axios'
 })
 export class AdminCompanyListComponent implements OnInit {
 
+  @Output() private createNewCompanyClicked = new EventEmitter()
+
+  public companyList: any[] = []
+
   constructor() { }
 
   ngOnInit() {
     axios.get('http://localhost:7002/company/list')
       .then(
         (response : any) => {
-          console.log(response)
+          this.companyList = response.data.companies
         }
       )
       .catch(
@@ -23,6 +27,10 @@ export class AdminCompanyListComponent implements OnInit {
           console.log(error)
         }
       )
+  }
+
+  createNewCompany(){
+    this.createNewCompanyClicked.emit(true)
   }
 
 }

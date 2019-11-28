@@ -13,6 +13,12 @@ export class AdminLandingPageComponent implements OnInit {
 
   public companyListShow: boolean = false
 
+  public companyCreateShow: boolean = false
+
+  public stockExchangeListShow: boolean = false
+
+  public stockExchangeCreateShow: boolean = false
+
   constructor() { }
 
   ngOnInit() {
@@ -22,6 +28,10 @@ export class AdminLandingPageComponent implements OnInit {
     if(e == true){
       this.importExcelShow = false
       this.uploadSummaryShow = true
+      this.uploadSummaryShow = false
+      this.companyListShow = false
+      this.stockExchangeListShow = false
+      this.stockExchangeCreateShow = false
     }
   }
 
@@ -29,19 +39,83 @@ export class AdminLandingPageComponent implements OnInit {
     if(e){
       this.importExcelShow = true
       this.uploadSummaryShow = false
+      this.uploadSummaryShow = false
+      this.companyListShow = false
+      this.stockExchangeListShow = false
+      this.stockExchangeCreateShow = false
     }
+  }
+
+  createNewCompanyClicked(e){
+    if(e){
+      this.companyCreateShow = true
+      this.importExcelShow = false
+      this.uploadSummaryShow = false
+      this.companyListShow = false
+      this.stockExchangeListShow = false
+      this.stockExchangeCreateShow = false
+    }
+  }
+
+  companySaved(e){
+    if(e){
+      this.companyCreateShow = false
+      this.importExcelShow = false
+      this.uploadSummaryShow = false
+      this.companyListShow = true
+      this.stockExchangeListShow = false
+      this.stockExchangeCreateShow = false
+    }
+  }
+
+  stockExchangeSaved(e){
+    if(e){
+      this.companyCreateShow = false
+      this.importExcelShow = false
+      this.uploadSummaryShow = false
+      this.companyListShow = false
+      this.stockExchangeListShow = true
+      this.stockExchangeCreateShow = false
+    }
+  }
+
+  newStockExchangeClicked(e){
+    if(e){
+      this.companyCreateShow = false
+      this.importExcelShow = false
+      this.uploadSummaryShow = false
+      this.companyListShow = false
+      this.stockExchangeListShow = false
+      this.stockExchangeCreateShow = true
+    }
+    
   }
 
   importDataClick(){
     this.importExcelShow = true
     this.uploadSummaryShow = false
     this.companyListShow = false
+    this.companyCreateShow = false
+    this.stockExchangeListShow = false
+    this.stockExchangeCreateShow = false
   }
 
   manageCompanyClick(){
     this.importExcelShow = false
     this.uploadSummaryShow = false
     this.companyListShow = true
+    this.companyCreateShow = false
+    this.stockExchangeListShow = false
+    this.stockExchangeCreateShow = false
+  }
+
+  manageExchangeClick(){
+    this.importExcelShow = false
+    this.uploadSummaryShow = false
+    this.companyListShow = false
+    this.companyCreateShow = false
+    this.stockExchangeListShow = true
+    this.stockExchangeCreateShow = false
   }
 
 }

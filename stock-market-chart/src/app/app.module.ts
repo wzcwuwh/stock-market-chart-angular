@@ -19,6 +19,8 @@ import { AdminImportExcelComponent } from './components/admin/admin-import-excel
 import { AdminUploadSummaryComponent } from './components/admin/admin-upload-summary/admin-upload-summary.component';
 import { AdminCompanyListComponent } from './components/admin/admin-company-list/admin-company-list.component';
 import { AdminCompanyCreateComponent } from './components/admin/admin-company-create/admin-company-create.component';
+import { AdminStockExchangeListComponent } from './components/admin/admin-stock-exchange-list/admin-stock-exchange-list.component';
+import { AdminStockExchangeCreateComponent } from './components/admin/admin-stock-exchange-create/admin-stock-exchange-create.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { AdminCompanyCreateComponent } from './components/admin/admin-company-cr
     AdminImportExcelComponent,
     AdminUploadSummaryComponent,
     AdminCompanyListComponent,
-    AdminCompanyCreateComponent
+    AdminCompanyCreateComponent,
+    AdminStockExchangeListComponent,
+    AdminStockExchangeCreateComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
 <div class="table-responsive">
 <table class="table table-dark table-hover table-bordered">
-  <thead>
+  <thead class="theadStyle">
       <tr>
           <th>Company Logo</th>
           <th>Company Name</th>
@@ -8,34 +8,23 @@
           <th>Operation</th>
       </tr>
   </thead>
-  <tbody>
-      <tr>
+  <tbody class="tbodyStyle">
+      <tr *ngFor="let item of companyList">
           <td scope="row">
               <img src=""
-                  alt="Training Name" width="100px" height="100px">
-              Company One
+                  alt="" width="100px" height="100px">
           </td>
-          <td>BSE,NSE</td>
-          <td>brief writeup</td>
+          <td>{{item.companyName}}</td>
+          <td>{{item.briefWriteup}}</td>
           <td>
               <div>
-                  <input type="button" value="edit" width="100%">
-              </div>
-          </td>
-      </tr>
-      <tr>
-          <td scope="row">
-              <img src=""
-                  alt="Training Name" width="100px" height="100px">
-              Company Two</td>
-          <td>BSE</td>
-          <td>brief writeup</td>
-          <td>
-              <div>
-                  <input type="button" value="edit" width="100%">
+                <button type="button" class="btn btn-primary">edit</button>
               </div>
           </td>
       </tr>
   </tbody>
 </table>
+</div>
+<div>
+    <input type="submit" value="Create New Company" class="btn login_btn" (click)="createNewCompany()">
 </div>
