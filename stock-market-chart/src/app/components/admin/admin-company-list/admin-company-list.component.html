@@ -11,14 +11,14 @@
   <tbody class="tbodyStyle">
       <tr *ngFor="let item of companyList">
           <td scope="row">
-              <img src=""
-                  alt="" width="100px" height="100px">
+              <img [src]= "item.logo"
+                  alt="company1" width="100px" height="100px">
           </td>
           <td>{{item.companyName}}</td>
           <td>{{item.briefWriteup}}</td>
           <td>
               <div>
-                <button type="button" class="btn btn-primary">edit</button>
+                <button type="button" class="btn btn-primary">Edit</button>
               </div>
           </td>
       </tr>

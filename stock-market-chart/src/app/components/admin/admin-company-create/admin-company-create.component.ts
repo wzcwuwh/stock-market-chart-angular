@@ -19,6 +19,8 @@ export class AdminCompanyCreateComponent implements OnInit {
 
   public briefWriteup: string = ''
 
+  public selectedFile: any
+
   @Output() private companySaved = new EventEmitter()
 
   constructor() { }
@@ -27,13 +29,15 @@ export class AdminCompanyCreateComponent implements OnInit {
   }
 
   save(){
-    axios.post('http://localhost:7002/company/new',{
-        companyName: this.companyName,
-        CEO: this.CEO,
-        boardOfDirectors: this.boardOfDirectors,
-        turnover: this.turnover,
-        briefWriteup: this.briefWriteup
-      })
+    console.log(btoa(this.selectedFile))
+    axios.post('http://localhost:7002/company/new', {
+      companyName: this.companyName,
+      CEO: this.CEO,
+      boardOfDirectors: this.boardOfDirectors,
+      turnover: this.turnover,
+      briefWriteup: this.briefWriteup,
+      logoPath: btoa(this.selectedFile)
+    })
       .then(
         (response : any) => {
           console.log(response.data)
@@ -47,6 +51,10 @@ export class AdminCompanyCreateComponent implements OnInit {
           console.log(error)
         }
       )
+  }
+
+  uploadFileChange(e){
+    this.selectedFile = e.target.files[0]
   }
 
 }

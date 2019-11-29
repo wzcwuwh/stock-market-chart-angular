@@ -19,7 +19,17 @@ export class AdminCompanyListComponent implements OnInit {
     axios.get('http://localhost:7002/company/list')
       .then(
         (response : any) => {
-          this.companyList = response.data.companies
+          for(let json of response.data.companies){
+            console.log(json.logo)
+            console.log(atob(json.logo))
+            var logoStr = 'data:image/jpeg;base64,' + atob(json.logo)
+            let tmpJson = {
+              companyName: json.companyName,
+              briefWriteup: json.briefWriteup,
+              logo: logoStr
+            }
+            this.companyList.push(tmpJson)
+          }
         }
       )
       .catch(
