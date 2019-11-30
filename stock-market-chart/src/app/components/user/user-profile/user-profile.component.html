@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="d-flex justify-content-center h-100">
+    <div class="card">
+      <div class="card-header">
+        <h3>Profile</h3>
+      </div>
+      <div class="card-body">
+        <form>
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Contact No</span>
+            </div>
+            <input type="text" name="contactNo" class="form-control" placeholder="" required [(ngModel)]="contactNo"/>
+          </div>
+          <div>
+            <div class="form-group">
+              <input
+                type="submit"
+                value="Update"
+                class="btn float-left login_btn"
+                (click)="update()"
+              />
+              <input
+                type="submit"
+                value="Cancel"
+                class="btn float-right login_btn"
+                (click)="cancel()"
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

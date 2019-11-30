@@ -1,60 +1,118 @@
 <div class="container">
   <div class="d-flex justify-content-center">
-      <div class="card">
-          <div class="card-header">
-              <h3>Create New Company</h3>
-          </div>
-          <div class="card-body">
-              <form>
-                  <div class="input-group form-group">
-                      <div class="input-group-prepend">
-                          <span class="input-group-text">Company Name</span>
-                      </div>
-                      <input type="text" name="companyName" class="form-control" placeholder="" required [(ngModel)]="companyName">
-                  </div>
-                  <div class="input-group form-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">CEO</span>
-                    </div>
-                    <input type="text" name="CEO" class="form-control" placeholder="" required [(ngModel)]="CEO">
-                </div>
-                <div class="input-group form-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">Board of Directors</span>
-                    </div>
-                    <input type="text" name="boardOfDirectors" class="form-control" placeholder="" required [(ngModel)]="boardOfDirectors">
-                </div>
-                  <div class="input-group form-group">
-                      <div class="input-group-prepend">
-                          <span class="input-group-text">Turnover</span>
-                      </div>
-                      <input type="text" name="turnover" class="form-control" placeholder="" required [(ngModel)]="turnover">
-                  </div>
-                  <div class="input-group form-group">
-                      <div class="input-group-prepend">
-                          <span class="input-group-text">Brief Description</span>
-                      </div>
-                      <input type="text" name="briefWriteup" class="form-control" placeholder="" required [(ngModel)]="briefWriteup">
-                  </div>
-                  <div class="input-group form-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">IPO date</span>
-                    </div>
-                    <input type="datetime-local" class="form-control" placeholder="">
-                </div>
-                <div class="input-group form-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">LOGO</span>
-                    </div>
-                    <input type="file" class="form-control" placeholder="" (change)="uploadFileChange($event)">
-                </div>
-                  <div>
-                      <div class="form-group">
-                          <input type="submit" value="Save" class="btn float-left login_btn" (click)="save()">
-                      </div>
-                  </div>
-              </form>
-          </div>
+    <div class="card">
+      <div class="card-header">
+        <h3>Create New Company</h3>
       </div>
+      <div class="card-body">
+        <form>
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Company Name</span>
+            </div>
+            <input
+              type="text"
+              name="companyName"
+              class="form-control"
+              placeholder=""
+              required
+              [(ngModel)]="companyName"
+            />
+          </div>
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">CEO</span>
+            </div>
+            <input
+              type="text"
+              name="CEO"
+              class="form-control"
+              placeholder=""
+              required
+              [(ngModel)]="CEO"
+            />
+          </div>
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Board Chairman</span>
+            </div>
+            <input
+              type="text"
+              name="boardOfDirectors"
+              class="form-control"
+              placeholder=""
+              required
+              [(ngModel)]="boardChairman"
+            />
+          </div>
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Turnover</span>
+            </div>
+            <input
+              type="text"
+              name="turnover"
+              class="form-control"
+              placeholder=""
+              required
+              [(ngModel)]="turnover"
+            />
+          </div>
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Sector</span>
+            </div>
+            <input
+              type="text"
+              name="sector"
+              class="form-control"
+              placeholder=""
+              required
+              [(ngModel)]="sector"
+            />
+          </div>
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Brief Description</span>
+            </div>
+            <input
+              type="text"
+              name="briefWriteup"
+              class="form-control"
+              placeholder=""
+              required
+              [(ngModel)]="briefWriteup"
+            />
+          </div>
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">IPO date</span>
+            </div>
+            <input type="datetime-local" class="form-control" placeholder="" />
+          </div>
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">LOGO</span>
+            </div>
+            <input
+              type="file"
+              class="form-control"
+              placeholder=""
+              (change)="uploadFileChange($event)"
+            />
+          </div>
+          <div>
+            <div class="form-group">
+              <input
+                type="submit"
+                value="Save"
+                class="btn float-left login_btn"
+                (click)="save()"
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 </div>

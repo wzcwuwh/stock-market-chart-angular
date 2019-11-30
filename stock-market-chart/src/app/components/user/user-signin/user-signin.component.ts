@@ -47,9 +47,23 @@ export class UserSigninComponent implements OnInit {
               ))
             } else {
               if(response.data.userType == 'admin'){
-                this.router.navigateByUrl('/admin/land')
+                this.router.navigateByUrl(this.router.createUrlTree(
+                  ['/admin/land'],
+                  {
+                    queryParams: {
+                      username: this.username
+                    }
+                  }
+                ))
               } else {
-                this.router.navigateByUrl('/user/land')
+                this.router.navigateByUrl(this.router.createUrlTree(
+                  ['/user/land'],
+                  {
+                    queryParams: {
+                      username: this.username
+                    }
+                  }
+                ))
               }
             }
           } else {

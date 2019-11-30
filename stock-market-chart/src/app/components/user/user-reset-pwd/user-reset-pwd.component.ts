@@ -33,15 +33,7 @@ export class UserResetPwdComponent implements OnInit {
       })
       .then(
         (response : any) => {
-          this.router.navigateByUrl(this.router.createUrlTree(
-            ['/user/menu'],
-            {
-              queryParams: {
-                username: this.username
-              }
-            }
-            )
-          )
+          this.router.navigateByUrl('/user/signin')
         }
       )
       .catch(

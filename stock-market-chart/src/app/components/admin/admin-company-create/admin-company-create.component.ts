@@ -13,9 +13,11 @@ export class AdminCompanyCreateComponent implements OnInit {
 
   public CEO: string = ''
 
-  public boardOfDirectors: string = ''
+  public boardChairman: string = ''
 
   public turnover: number
+
+  public sector: string = ''
 
   public briefWriteup: string = ''
 
@@ -33,8 +35,9 @@ export class AdminCompanyCreateComponent implements OnInit {
     axios.post('http://localhost:7002/company/new', {
       companyName: this.companyName,
       CEO: this.CEO,
-      boardOfDirectors: this.boardOfDirectors,
+      boardChairman: this.boardChairman,
       turnover: this.turnover,
+      sector: this.sector,
       briefWriteup: this.briefWriteup,
       logoPath: btoa(this.selectedFile)
     })

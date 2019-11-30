@@ -1,0 +1,31 @@
+<div class="table-responsive">
+    <table class="table table-dark table-hover table-bordered">
+      <thead class="theadStyle">
+          <tr>
+              <th>Company Logo</th>
+              <th>Company Name</th>
+              <th>Turn Over</th>
+              <th>CEO</th>
+              <th>Board Chairman</th>
+              <th>Sector</th>
+              <th>Brief Writeup</th>
+              <th>Latest Stock Price</th>
+          </tr>
+      </thead>
+      <tbody class="tbodyStyle">
+          <tr *ngFor="let item of companyList">
+              <td scope="row">
+                  <img [src]= "item.logo"
+                      alt="company1" width="100px" height="100px">
+              </td>
+              <td>{{item.companyName}}</td>
+              <td>{{item.turnOver}}</td>
+              <td>{{item.CEO}}</td>
+              <td>{{item.boardChairman}}</td>
+              <td>{{item.sector}}</td>
+              <td>{{item.briefWriteup}}</td>
+              <td>{{item.latestStockPrice}}</td>
+          </tr>
+      </tbody>
+    </table>
+    </div>

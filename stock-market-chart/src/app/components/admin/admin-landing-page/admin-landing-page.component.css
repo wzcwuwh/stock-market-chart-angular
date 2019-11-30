@@ -1,10 +1,8 @@
-a{
-  color: white;
-}
 a:hover{
   text-decoration: underline;
   color: #FFC312;
 }
 .nav-link{
   font-size: 16px;
+  color: white;
 }
