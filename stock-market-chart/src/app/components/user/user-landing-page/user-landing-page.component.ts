@@ -10,7 +10,11 @@ import axios from 'axios'
 })
 export class UserLandingPageComponent implements OnInit {
 
-  public username : string = ''
+  public username: string = ''
+
+  public companySearchTxt: string = ''
+
+  public searchResults: any[] = []
 
   constructor(public activatedRoute: ActivatedRoute, public router: Router) { }
 
@@ -59,6 +63,19 @@ export class UserLandingPageComponent implements OnInit {
 
   companyListClick(){
 
+  }
+
+  companySearch(){
+    axios.post('http://localhost:7002/company/search',{
+      companySearchTxt: this.companySearchTxt
+    })
+    .then((response: any)=>{
+      console.log(response.data.companies)
+      this.searchResults = response.data.companies
+    })
+    .catch((error)=>{
+      console.log(error)
+    })
   }
 
 }

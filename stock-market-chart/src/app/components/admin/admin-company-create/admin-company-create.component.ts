@@ -23,6 +23,8 @@ export class AdminCompanyCreateComponent implements OnInit {
 
   public selectedFile: any
 
+  public preview: string = ''
+
   @Output() private companySaved = new EventEmitter()
 
   constructor() { }
@@ -31,7 +33,7 @@ export class AdminCompanyCreateComponent implements OnInit {
   }
 
   save(){
-    console.log(btoa(this.selectedFile))
+    // console.log(btoa(this.selectedFile))
     axios.post('http://localhost:7002/company/new', {
       companyName: this.companyName,
       CEO: this.CEO,
@@ -39,7 +41,7 @@ export class AdminCompanyCreateComponent implements OnInit {
       turnover: this.turnover,
       sector: this.sector,
       briefWriteup: this.briefWriteup,
-      logoPath: btoa(this.selectedFile)
+      logo: btoa(this.preview)
     })
       .then(
         (response : any) => {
@@ -56,8 +58,15 @@ export class AdminCompanyCreateComponent implements OnInit {
       )
   }
 
-  uploadFileChange(e){
-    this.selectedFile = e.target.files[0]
+  uploadFileChange(event){
+    this.selectedFile = event.target.files[0]
+    var reader = new FileReader()
+
+    reader.onload = (e)=>{
+      this.preview = e.target.result
+    }
+
+    reader.readAsDataURL(this.selectedFile)
   }
 
 }
