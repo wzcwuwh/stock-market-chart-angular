@@ -6,3 +6,25 @@ a:hover{
   font-size: 16px;
   color: white;
 }
+.suggest {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  background-color: #ffffff;
+  border: 1px solid #999;
+}
+.suggest ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+.suggest ul li {
+  padding: 3px;
+  font-size: 14px;
+  line-height: 25px;
+  cursor: pointer;
+}
+.suggest ul li:hover {
+  text-decoration: underline;
+  background-color: #e5e5e5;
+}

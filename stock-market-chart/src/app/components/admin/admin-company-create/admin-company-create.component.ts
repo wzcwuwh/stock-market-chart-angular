@@ -64,6 +64,7 @@ export class AdminCompanyCreateComponent implements OnInit {
 
     reader.onload = (e)=>{
       this.preview = e.target.result
+      console.log(this.preview)
     }
 
     reader.readAsDataURL(this.selectedFile)

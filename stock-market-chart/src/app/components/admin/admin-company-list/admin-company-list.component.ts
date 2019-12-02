@@ -20,14 +20,6 @@ export class AdminCompanyListComponent implements OnInit {
       .then(
         (response : any) => {
           for(let json of response.data.companies){
-            console.log(json.logo)
-            console.log(atob(json.logo))
-
-            // var reader = new FileReader()
-            // reader.onload = (e)=>{
-            //   this.logo = e.target.result
-            // }
-            // reader.readAsDataURL(json.logo)
             let tmpJson = {
               companyName: json.companyName,
               briefWriteup: json.briefWriteup,

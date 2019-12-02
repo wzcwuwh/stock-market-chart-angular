@@ -7,8 +7,8 @@
           <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="collapsibleNavId">
-          <form class="form-inline mr-auto my-2 my-lg-0">
-              <input class="form-control mr-sm-2" name="companySearchTxt" type="text" placeholder="" [(ngModel)]="companySearchTxt">
+          <form class="form-inline mr-auto my-2 my-lg-0" id="search-form">
+              <input class="form-control mr-sm-2" id="companySearchTxt" name="companySearchTxt" type="text" placeholder="" [(ngModel)]="companySearchTxt" (keyup)="keyup()">
               <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="companySearch()">Search</button>
           </form>
           <ul class="navbar-nav mt-2 mt-lg-0">
@@ -26,6 +26,9 @@
             </li>
         </ul>
       </div>
+      <div id="search_suggest" class="suggest" style="display: none;">
+        <ul id="search-result" class="list-group"></ul>
+      </div>
   </nav>
   <table class="table table-dark table-hover">
       <thead>
@@ -37,5 +40,5 @@
           </tr>
       </thead>
   </table>
-  <app-user-company-list></app-user-company-list>
+  <app-user-company-list [searchResults]="searchResults"></app-user-company-list>
 </div>
