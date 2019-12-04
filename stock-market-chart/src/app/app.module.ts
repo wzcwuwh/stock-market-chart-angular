@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms'
+import {NgxEchartsModule} from 'ngx-echarts'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -48,7 +49,8 @@ import { UserCompanyListComponent } from './components/user/user-company-list/us
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    NgxEchartsModule
   ],
   providers: [EncryptService, EmailValidationService],
   bootstrap: [AppComponent]

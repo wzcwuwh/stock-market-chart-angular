@@ -1,0 +1,10 @@
+.input-group-prepend span{
+  width: 225px;
+}
+#generateMap{
+  width: 200px;
+}
+#main{
+  height: 350px;
+  background-color: white;
+}

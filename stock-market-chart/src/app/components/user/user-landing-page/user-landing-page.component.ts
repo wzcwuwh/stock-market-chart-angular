@@ -2,7 +2,6 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 
 import axios from "axios";
-import * as $ from "jquery";
 
 @Component({
   selector: "app-user-landing-page",
@@ -18,6 +17,16 @@ export class UserLandingPageComponent implements OnInit {
 
   public suggestResults: any[] = [];
 
+  public promptShow: boolean = false
+
+  public searchFormShow: boolean = true
+
+  public companyListShow: boolean = true
+
+  public compareChartsShow: boolean = false
+
+  public companyOrSector: String = ''
+
   constructor(public activatedRoute: ActivatedRoute, public router: Router) {}
 
   ngOnInit() {
@@ -32,7 +41,6 @@ export class UserLandingPageComponent implements OnInit {
         username: this.username
       })
       .then((reponse: any) => {
-        console.log(reponse.data);
         if (reponse.data.loginStatus == false) {
           this.router.navigateByUrl("/user/signin");
         }
@@ -62,7 +70,18 @@ export class UserLandingPageComponent implements OnInit {
     );
   }
 
-  companyListClick() {}
+  companyListClick() {
+    this.searchFormShow = true
+    this.companyListShow = true
+    this.compareChartsShow = false
+  }
+
+  compareCompanyClick(){
+    this.compareChartsShow = true
+    this.searchFormShow = false
+    this.companyListShow = false
+    this.companyOrSector = 'Company'
+  }
 
   companySearch() {
     axios
@@ -70,7 +89,6 @@ export class UserLandingPageComponent implements OnInit {
         companySearchTxt: this.companySearchTxt
       })
       .then((response: any) => {
-        console.log(response.data.companies);
         this.searchResults = response.data.companies;
       })
       .catch(error => {
@@ -88,36 +106,21 @@ export class UserLandingPageComponent implements OnInit {
         .then((response: any) => {
           this.suggestResults = response.data.companies;
           if (this.suggestResults.length > 0) {
-            this.addPrompt()
+            this.promptShow = true
           }
         })
         .catch(error => {
           console.log(error);
         });
     } else {
-      $("#search_suggest").hide()
+      this.promptShow = false
     }
   }
 
-  addPrompt(){
-    //remove the appended children before append again
-    $("#search-result").children().remove()
-    var html = "";
-    for (let json of this.suggestResults) {
-      html +=
-        '<li class="list-group-item">' + json.companyName + "</li>";
-    }
-    $("#search-result").append(html);
-    $("#search-result li").css('width', $('#companySearchTxt').outerWidth())
-    $("#search_suggest")
-    .show()
-    .css({
-      top:
-        $("#search-form").offset().top +
-        $("#search-form").outerHeight(),
-      left: $("#search-form").offset().left - 165,
-      position: "absolute"
-    });
+  promptClick(key){
+    this.companySearchTxt = this.suggestResults[key].companyName
+    this.companySearch()
+    this.promptShow = false
   }
 
 }
