@@ -15,7 +15,19 @@ export class UserComparisonChartsComponent implements OnInit {
 
   public stockExchangeList: any[] = []
 
-  public echartsIntance: any
+  public backgroundColor: string = ''
+
+  public selectedCompanyName: string = ''
+
+  public selectedStockExchangeName: string = ''
+
+  public fromPeriod: Date
+
+  public toPeriod: Date
+
+  public periodSize: string = ''
+
+  public periodUnit: string = ''
 
   constructor() { }
 
@@ -43,6 +55,26 @@ export class UserComparisonChartsComponent implements OnInit {
   }
 
   generateMap(){
+    axios.post('http://localhost:7002/company/compare',{
+      companyName: this.selectedCompanyName,
+      stockExchangeName: this.selectedStockExchangeName,
+      fromPeriod: this.fromPeriod,
+      toPeriod: this.toPeriod,
+      periodSize: this.periodSize,
+      periodUnit: this.periodUnit
+    })
+    .then((response)=>{
+      console.log(response)
+    })
+    .catch((error)=>{
+      console.log(error)
+    })
+    this.displayCharts()
+  }
+
+  displayCharts(){
+    //set background color to white for display reason
+    this.backgroundColor = 'white'
     // based on prepared DOM, initialize echarts instance
     var main = document.getElementById('main') as HTMLDivElement
     var myChart = echarts.init(main);
@@ -52,7 +84,14 @@ export class UserComparisonChartsComponent implements OnInit {
         title: {
             text: 'ECharts entry example'
         },
-        tooltip: {},
+        toolbox: {
+          show: true,
+          feature: {
+            saveImage: {
+              show: true
+            }
+          }
+        },
         legend: {
             data:['Sales']
         },
@@ -70,4 +109,27 @@ export class UserComparisonChartsComponent implements OnInit {
     // use configuration item and data specified to show chart
     myChart.setOption(option);
   }
+
+  getCompanyName(e){
+    this.selectedCompanyName = e.target.value
+    console.log(this.selectedCompanyName)
+  }
+
+  getStockExchangeName(e){
+    this.selectedStockExchangeName = e.target.value
+    console.log(this.selectedStockExchangeName)
+  }
+
+  fromPeriodChange(e){
+    this.fromPeriod = e.target.value
+  }
+
+  toPeriodChange(e){
+    this.toPeriod = e.target.value
+  }
+
+  periodUnitChange(e){
+    this.periodUnit = e.target.value
+  }
+
 }
