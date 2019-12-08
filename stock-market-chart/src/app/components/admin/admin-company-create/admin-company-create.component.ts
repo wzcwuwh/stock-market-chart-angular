@@ -63,7 +63,7 @@ export class AdminCompanyCreateComponent implements OnInit {
     var reader = new FileReader()
 
     reader.onload = (e)=>{
-      this.preview = e.target.result
+      this.preview = reader.result as string
       console.log(this.preview)
     }
 

@@ -1,5 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
+import axios from 'axios'
+
 @Component({
   selector: 'app-admin-upload-summary',
   templateUrl: './admin-upload-summary.component.html',
@@ -7,7 +9,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class AdminUploadSummaryComponent implements OnInit {
 
-  public companyCode: any
+  public companyName: any
 
   public stockExchange: any
 
@@ -24,7 +26,16 @@ export class AdminUploadSummaryComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.companyCode = localStorage.getItem("companyCode")
+    let companyCode = localStorage.getItem("companyCode")
+    axios.post('http://localhost:7002/company/name',{
+      companyCode: companyCode
+    })
+    .then((response)=>{
+      this.companyName = response.data.companyName
+    })
+    .catch((error)=>{
+      console.log(error)
+    })
     this.stockExchange = localStorage.getItem("stockExchange")
     this.NoOfRecordsImported = localStorage.getItem("NoOfRecordsImported")
     this.fromDate = localStorage.getItem("fromDate")

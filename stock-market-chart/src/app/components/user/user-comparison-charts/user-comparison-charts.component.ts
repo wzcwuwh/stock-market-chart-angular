@@ -29,6 +29,20 @@ export class UserComparisonChartsComponent implements OnInit {
 
   public periodUnit: string = ''
 
+  public timeline: any[] = []
+
+  public priceStack: any[] = []
+
+  public myChart: any
+
+  public addDisabled: boolean = true
+
+  public chartSeries: any[] = []
+
+  public seriesJson: any = {}
+
+  public chartLegend: any[] = []
+
   constructor() { }
 
   ngOnInit() {
@@ -55,6 +69,13 @@ export class UserComparisonChartsComponent implements OnInit {
   }
 
   generateMap(){
+    this.addDisabled = false
+    //set background color to white for display reason
+    this.backgroundColor = 'white'
+    // based on prepared DOM, initialize echarts instance
+    var main = document.getElementById('main') as HTMLDivElement
+    this.myChart = echarts.init(main);
+
     axios.post('http://localhost:7002/company/compare',{
       companyName: this.selectedCompanyName,
       stockExchangeName: this.selectedStockExchangeName,
@@ -64,50 +85,59 @@ export class UserComparisonChartsComponent implements OnInit {
       periodUnit: this.periodUnit
     })
     .then((response)=>{
-      console.log(response)
-    })
-    .catch((error)=>{
-      console.log(error)
-    })
-    this.displayCharts()
-  }
+      console.log(response.data.stockPriceDetails)
+      for(let json of response.data.stockPriceDetails){
+        this.timeline.push(json.currentDate + ' ' + json.currentTime)
+        this.priceStack.push(json.currentPrice)
+      }
 
-  displayCharts(){
-    //set background color to white for display reason
-    this.backgroundColor = 'white'
-    // based on prepared DOM, initialize echarts instance
-    var main = document.getElementById('main') as HTMLDivElement
-    var myChart = echarts.init(main);
-
-    // specify chart configuration item and data
-    var option = {
+      this.seriesJson = {
+        name: this.selectedCompanyName,
+            type: 'line',
+            data: this.priceStack,
+            markPoint: {
+              data: [
+                {type: 'max', name: 'max'},
+                {type: 'min', name: 'min'}
+              ]
+            },
+            markLine: {
+              data: [
+                {type: 'average', name: 'average'}
+              ]
+            }
+      }
+      this.chartSeries.push(this.seriesJson)
+      this.chartLegend.push(this.selectedCompanyName)
+      console.log(this.chartLegend)
+      this.myChart.setOption({
         title: {
-            text: 'ECharts entry example'
+            text: 'Company Compare Charts'
         },
         toolbox: {
           show: true,
           feature: {
             saveImage: {
               show: true
+            },
+            magicType: {
+              type: ['bar', 'line']
             }
           }
         },
         legend: {
-            data:['Sales']
+            data: this.chartLegend
         },
         xAxis: {
-            data: ["shirt","cardign","chiffon shirt","pants","heels","socks"]
+            data: this.timeline
         },
         yAxis: {},
-        series: [{
-            name: 'Sales',
-            type: 'line',
-            data: [5, 20, 36, 10, 10, 20]
-        }]
-    };
-
-    // use configuration item and data specified to show chart
-    myChart.setOption(option);
+        series: this.chartSeries
+    });
+    })
+    .catch((error)=>{
+      console.log(error)
+    })
   }
 
   getCompanyName(e){
@@ -130,6 +160,56 @@ export class UserComparisonChartsComponent implements OnInit {
 
   periodUnitChange(e){
     this.periodUnit = e.target.value
+  }
+
+  add(){
+    this.timeline = this.timeline.slice(this.timeline.length + 1)
+    this.priceStack = this.priceStack.slice(this.priceStack.length + 1)
+    axios.post('http://localhost:7002/company/compare',{
+      companyName: this.selectedCompanyName,
+      stockExchangeName: this.selectedStockExchangeName,
+      fromPeriod: this.fromPeriod,
+      toPeriod: this.toPeriod,
+      periodSize: this.periodSize,
+      periodUnit: this.periodUnit
+    })
+    .then((response)=>{
+      console.log(response.data.stockPriceDetails)
+      for(let json of response.data.stockPriceDetails){
+        this.timeline.push(json.currentDate + ' ' + json.currentTime)
+        this.priceStack.push(json.currentPrice)
+      }
+
+      this.seriesJson = {
+        name: this.selectedCompanyName,
+        type: 'line',
+            data: this.priceStack,
+            markPoint: {
+              data: [
+                {type: 'max', name: 'max'},
+                {type: 'min', name: 'min'}
+              ]
+            },
+            markLine: {
+              data: [
+                {type: 'average', name: 'average'}
+              ]
+            }
+      }
+      this.chartSeries.push(this.seriesJson)
+      this.chartLegend.push(this.selectedCompanyName)
+      console.log(this.chartLegend)
+      console.log(this.chartSeries) 
+      this.myChart.setOption({
+        legend: {
+          data: this.chartLegend
+        },
+        series: this.chartSeries
+    });
+    })
+    .catch((error)=>{
+      console.log(error)
+    })
   }
 
 }

@@ -26,9 +26,9 @@ export class AdminLandingPageComponent implements OnInit {
 
   uploadClicked(e){
     if(e == true){
+      this.companyCreateShow = false
       this.importExcelShow = false
       this.uploadSummaryShow = true
-      this.uploadSummaryShow = false
       this.companyListShow = false
       this.stockExchangeListShow = false
       this.stockExchangeCreateShow = false
@@ -37,8 +37,8 @@ export class AdminLandingPageComponent implements OnInit {
 
   okClicked(e){
     if(e){
+      this.companyCreateShow = false
       this.importExcelShow = true
-      this.uploadSummaryShow = false
       this.uploadSummaryShow = false
       this.companyListShow = false
       this.stockExchangeListShow = false

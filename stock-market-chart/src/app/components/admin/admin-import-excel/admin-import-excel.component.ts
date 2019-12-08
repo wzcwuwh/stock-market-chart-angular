@@ -25,6 +25,9 @@ export class AdminImportExcelComponent implements OnInit {
   }
 
   upload(){
+      if(!this.selectedFile){
+        alert('pls select an excel file to upload.')
+      }
     // axiosFileupload('http://localhost:7005/excel/import',this.selectedFile)
       var formData = new FormData()
       formData.append('file', this.selectedFile)
