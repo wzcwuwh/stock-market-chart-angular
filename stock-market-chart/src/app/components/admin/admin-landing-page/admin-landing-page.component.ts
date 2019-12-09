@@ -19,6 +19,10 @@ export class AdminLandingPageComponent implements OnInit {
 
   public stockExchangeCreateShow: boolean = false
 
+  public ipoListShow: boolean = false
+
+  public ipoCreateShow: boolean = false
+
   constructor() { }
 
   ngOnInit() {
@@ -32,6 +36,8 @@ export class AdminLandingPageComponent implements OnInit {
       this.companyListShow = false
       this.stockExchangeListShow = false
       this.stockExchangeCreateShow = false
+      this.ipoListShow = false
+      this.ipoCreateShow = false
     }
   }
 
@@ -43,6 +49,8 @@ export class AdminLandingPageComponent implements OnInit {
       this.companyListShow = false
       this.stockExchangeListShow = false
       this.stockExchangeCreateShow = false
+      this.ipoListShow = false
+      this.ipoCreateShow = false
     }
   }
 
@@ -54,6 +62,8 @@ export class AdminLandingPageComponent implements OnInit {
       this.companyListShow = false
       this.stockExchangeListShow = false
       this.stockExchangeCreateShow = false
+      this.ipoListShow = false
+      this.ipoCreateShow = false
     }
   }
 
@@ -65,6 +75,8 @@ export class AdminLandingPageComponent implements OnInit {
       this.companyListShow = true
       this.stockExchangeListShow = false
       this.stockExchangeCreateShow = false
+      this.ipoListShow = false
+      this.ipoCreateShow = false
     }
   }
 
@@ -76,6 +88,8 @@ export class AdminLandingPageComponent implements OnInit {
       this.companyListShow = false
       this.stockExchangeListShow = true
       this.stockExchangeCreateShow = false
+      this.ipoListShow = false
+      this.ipoCreateShow = false
     }
   }
 
@@ -87,6 +101,8 @@ export class AdminLandingPageComponent implements OnInit {
       this.companyListShow = false
       this.stockExchangeListShow = false
       this.stockExchangeCreateShow = true
+      this.ipoListShow = false
+      this.ipoCreateShow = false
     }
     
   }
@@ -98,6 +114,8 @@ export class AdminLandingPageComponent implements OnInit {
     this.companyCreateShow = false
     this.stockExchangeListShow = false
     this.stockExchangeCreateShow = false
+    this.ipoListShow = false
+    this.ipoCreateShow = false
   }
 
   manageCompanyClick(){
@@ -107,6 +125,8 @@ export class AdminLandingPageComponent implements OnInit {
     this.companyCreateShow = false
     this.stockExchangeListShow = false
     this.stockExchangeCreateShow = false
+    this.ipoListShow = false
+    this.ipoCreateShow = false
   }
 
   manageExchangeClick(){
@@ -116,6 +136,19 @@ export class AdminLandingPageComponent implements OnInit {
     this.companyCreateShow = false
     this.stockExchangeListShow = true
     this.stockExchangeCreateShow = false
+    this.ipoListShow = false
+    this.ipoCreateShow = false
+  }
+
+  updateIPODetailsClick(){
+    this.importExcelShow = false
+    this.uploadSummaryShow = false
+    this.companyListShow = false
+    this.companyCreateShow = false
+    this.stockExchangeListShow = false
+    this.stockExchangeCreateShow = false
+    this.ipoListShow = true
+    this.ipoCreateShow = false
   }
 
 }

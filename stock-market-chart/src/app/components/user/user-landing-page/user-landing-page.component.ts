@@ -30,9 +30,13 @@ export class UserLandingPageComponent implements OnInit {
   constructor(public activatedRoute: ActivatedRoute, public router: Router) {}
 
   ngOnInit() {
-    this.activatedRoute.queryParams.subscribe(params => {
+    if(!localStorage.getItem("username")){
+      this.activatedRoute.queryParams.subscribe(params => {
       this.username = params["username"];
-    });
+      localStorage.setItem("username", this.username)
+      });
+    }
+    this.username = localStorage.getItem("username")
   }
 
   logout() {
@@ -41,7 +45,10 @@ export class UserLandingPageComponent implements OnInit {
         username: this.username
       })
       .then((reponse: any) => {
+        console.log(reponse.data)
+        console.log(reponse.data.loginStatus) 
         if (reponse.data.loginStatus == false) {
+          localStorage.removeItem("username")
           this.router.navigateByUrl("/user/signin");
         }
       })
@@ -81,6 +88,13 @@ export class UserLandingPageComponent implements OnInit {
     this.searchFormShow = false
     this.companyListShow = false
     this.companyOrSector = 'Company'
+  }
+
+  compareSectorClick(){
+    this.compareChartsShow = true
+    this.searchFormShow = false
+    this.companyListShow = false
+    this.companyOrSector = 'Sector'
   }
 
   companySearch() {

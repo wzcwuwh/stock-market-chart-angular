@@ -24,6 +24,8 @@ import { AdminStockExchangeListComponent } from './components/admin/admin-stock-
 import { AdminStockExchangeCreateComponent } from './components/admin/admin-stock-exchange-create/admin-stock-exchange-create.component';
 import { UserProfileComponent } from './components/user/user-profile/user-profile.component';
 import { UserCompanyListComponent } from './components/user/user-company-list/user-company-list.component';
+import { AdminIPOListComponent } from './components/admin/admin-ipo-list/admin-ipo-list.component';
+import { AdminIPOCreateComponent } from './components/admin/admin-ipo-create/admin-ipo-create.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import { UserCompanyListComponent } from './components/user/user-company-list/us
     AdminStockExchangeListComponent,
     AdminStockExchangeCreateComponent,
     UserProfileComponent,
-    UserCompanyListComponent
+    UserCompanyListComponent,
+    AdminIPOListComponent,
+    AdminIPOCreateComponent
   ],
   imports: [
     BrowserModule,

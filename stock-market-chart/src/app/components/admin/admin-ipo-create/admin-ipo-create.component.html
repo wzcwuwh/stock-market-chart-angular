@@ -1,0 +1,92 @@
+<div class="container">
+  <div class="d-flex justify-content-center">
+    <div class="card">
+      <div class="card-header">
+        <h3>Create New IPO</h3>
+      </div>
+      <div class="card-body">
+        <form>
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Company Name</span>
+            </div>
+            <select class="form-control" (change)="getCompanyName($event)">
+              <option *ngFor="let item of companyList; let key = index">{{
+                item.companyName
+              }}</option>
+            </select>
+          </div>
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Stock Exchange</span>
+            </div>
+            <select class="form-control" (change)="getStockExchangeName($event)">
+              <option *ngFor="let item of stockExchangeList; let key = index">{{
+                item.stockExchangeName
+              }}</option>
+            </select>
+          </div>
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Price Per Share</span>
+            </div>
+            <input
+              type="text"
+              name="pricePerShare"
+              class="form-control"
+              placeholder=""
+              required
+              [(ngModel)]="pricePerShare"
+            />
+          </div>
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Total No Of Shares</span>
+            </div>
+            <input
+              type="text"
+              name="totalNoOfShares"
+              class="form-control"
+              placeholder=""
+              required
+              [(ngModel)]="totalNoOfShares"
+            />
+          </div>
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Open Date Time</span>
+            </div>
+            <input
+              type="datetime-local"
+              class="form-control"
+              placeholder=""
+              required
+            />
+          </div>
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Remarks</span>
+            </div>
+            <input
+              type="text"
+              name="remarks"
+              class="form-control"
+              placeholder=""
+              [(ngModel)]="remarks"
+            />
+          </div>
+          <div>
+            <div class="form-group">
+              <input
+                type="submit"
+                value="Save"
+                class="btn float-left login_btn"
+                (click)="save()"
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

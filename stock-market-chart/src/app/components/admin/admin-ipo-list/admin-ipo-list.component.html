@@ -1,0 +1,33 @@
+<div class="table-responsive">
+  <table class="table table-dark table-hover table-bordered">
+    <thead class="theadStyle">
+        <tr>
+            <th>Company Name</th>
+            <th>Stock Exchange</th>
+            <th>Price Per Share</th>
+            <th>Total No Of Shares</th>
+            <th>Open Date Time</th>
+            <th>Remarks</th>
+            <th>Operation</th>
+        </tr>
+    </thead>
+    <tbody class="tbodyStyle">
+        <tr *ngFor="let item of companyList">
+            <td>{{item.companyName}}</td>
+            <td>{{item.stockExchange}}</td>
+            <td>{{item.pricePerShare}}</td>
+            <td>{{item.totalNoOfShares}}</td>
+            <td>{{item.openDateTime}}</td>
+            <td>{{item.remarks}}</td>
+            <td>
+                <div>
+                  <button type="button" class="btn btn-primary">Edit</button>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+  </div>
+  <div>
+      <input type="submit" value="Create New IPO" class="btn login_btn" (click)="createNewIPO()">
+  </div>
