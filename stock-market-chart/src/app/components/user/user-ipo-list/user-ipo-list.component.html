@@ -8,7 +8,6 @@
             <th>Total No Of Shares</th>
             <th>Open Date Time</th>
             <th>Remarks</th>
-            <th>Operation</th>
         </tr>
     </thead>
     <tbody class="tbodyStyle">
@@ -19,15 +18,7 @@
             <td>{{item.totalNoOfShares}}</td>
             <td>{{item.openDateTime}}</td>
             <td>{{item.remarks}}</td>
-            <td>
-                <div>
-                  <button type="button" class="btn btn-primary">Edit</button>
-                </div>
-            </td>
         </tr>
     </tbody>
   </table>
-  </div>
-  <div>
-      <input type="submit" value="Create New IPO" class="btn login_btn" (click)="createNewIPO()">
   </div>

@@ -26,6 +26,7 @@ import { UserProfileComponent } from './components/user/user-profile/user-profil
 import { UserCompanyListComponent } from './components/user/user-company-list/user-company-list.component';
 import { AdminIPOListComponent } from './components/admin/admin-ipo-list/admin-ipo-list.component';
 import { AdminIPOCreateComponent } from './components/admin/admin-ipo-create/admin-ipo-create.component';
+import { UserIpoListComponent } from './components/user/user-ipo-list/user-ipo-list.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { AdminIPOCreateComponent } from './components/admin/admin-ipo-create/adm
     UserProfileComponent,
     UserCompanyListComponent,
     AdminIPOListComponent,
-    AdminIPOCreateComponent
+    AdminIPOCreateComponent,
+    UserIpoListComponent
   ],
   imports: [
     BrowserModule,

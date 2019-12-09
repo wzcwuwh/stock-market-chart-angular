@@ -117,7 +117,7 @@ export class UserComparisonChartsComponent implements OnInit {
         toolbox: {
           show: true,
           feature: {
-            saveImage: {
+            saveAsImage: {
               show: true
             },
             magicType: {
@@ -142,12 +142,10 @@ export class UserComparisonChartsComponent implements OnInit {
 
   getCompanyName(e){
     this.selectedCompanyName = e.target.value
-    console.log(this.selectedCompanyName)
   }
 
   getStockExchangeName(e){
     this.selectedStockExchangeName = e.target.value
-    console.log(this.selectedStockExchangeName)
   }
 
   fromPeriodChange(e){

@@ -7,9 +7,9 @@
           <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="collapsibleNavId">
-          <form class="form-inline mr-auto my-2 my-lg-0" id="search-form" *ngIf="searchFormShow">
-              <input class="form-control mr-sm-2" id="companySearchTxt" name="companySearchTxt" type="text" placeholder="" [(ngModel)]="companySearchTxt" (keyup)="keyup()">
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="companySearch()">Search</button>
+          <form class="form-inline mr-auto my-2 my-lg-0" id="search-form">
+              <input class="form-control mr-sm-2" id="companySearchTxt" name="companySearchTxt" type="text" placeholder="" [(ngModel)]="companySearchTxt" (keyup)="keyup()" [readonly]="searchTxtReadonly">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="companySearch()" [disabled]="searchDisabled">Search</button>
               <div id="suggest" *ngIf="promptShow">
                 <ul id="search-result" class="list-group">
                     <li *ngFor="let item of suggestResults; let key = index" (click)="promptClick(key)" class="list-group-item">{{item.companyName}}</li>
@@ -44,4 +44,5 @@
   </table>
   <app-user-company-list [searchResults]="searchResults" *ngIf="companyListShow"></app-user-company-list>
   <app-user-comparison-charts [companyOrSector]="companyOrSector" *ngIf="compareChartsShow"></app-user-comparison-charts>
+  <app-user-ipo-list *ngIf="ipoShow"></app-user-ipo-list>
 </div>

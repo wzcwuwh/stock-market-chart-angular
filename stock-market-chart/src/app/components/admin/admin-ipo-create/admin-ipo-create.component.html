@@ -57,9 +57,10 @@
               <span class="input-group-text">Open Date Time</span>
             </div>
             <input
-              type="datetime-local"
+              type="date"
               class="form-control"
               placeholder=""
+              (change)="openDateTimeChange($event)"
               required
             />
           </div>

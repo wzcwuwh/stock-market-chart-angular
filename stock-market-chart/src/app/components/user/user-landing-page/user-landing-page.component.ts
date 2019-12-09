@@ -19,13 +19,17 @@ export class UserLandingPageComponent implements OnInit {
 
   public promptShow: boolean = false
 
-  public searchFormShow: boolean = true
-
   public companyListShow: boolean = true
 
   public compareChartsShow: boolean = false
 
+  public ipoShow: boolean = false
+
   public companyOrSector: String = ''
+
+  public searchTxtReadonly: boolean = false
+
+  public searchDisabled: boolean = false
 
   constructor(public activatedRoute: ActivatedRoute, public router: Router) {}
 
@@ -78,23 +82,37 @@ export class UserLandingPageComponent implements OnInit {
   }
 
   companyListClick() {
-    this.searchFormShow = true
+    this.searchTxtReadonly = false
+    this.searchDisabled = false
     this.companyListShow = true
     this.compareChartsShow = false
+    this.ipoShow = false
   }
 
   compareCompanyClick(){
     this.compareChartsShow = true
-    this.searchFormShow = false
+    this.searchTxtReadonly = true
+    this.searchDisabled = true
     this.companyListShow = false
     this.companyOrSector = 'Company'
+    this.ipoShow = false
   }
 
   compareSectorClick(){
     this.compareChartsShow = true
-    this.searchFormShow = false
+    this.searchTxtReadonly = true
+    this.searchDisabled = true
     this.companyListShow = false
     this.companyOrSector = 'Sector'
+    this.ipoShow = false
+  }
+
+  IPOSClick(){
+    this.searchTxtReadonly = true
+    this.searchDisabled = true
+    this.companyListShow = false
+    this.compareChartsShow = false
+    this.ipoShow = true
   }
 
   companySearch() {

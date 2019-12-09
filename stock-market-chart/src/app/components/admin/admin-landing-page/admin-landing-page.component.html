@@ -42,6 +42,6 @@
   <app-admin-company-create *ngIf="companyCreateShow" (companySaved)="companySaved($event)"></app-admin-company-create>
   <app-admin-stock-exchange-list *ngIf="stockExchangeListShow" (newStockExchangeClicked)="newStockExchangeClicked($event)"></app-admin-stock-exchange-list>
   <app-admin-stock-exchange-create *ngIf="stockExchangeCreateShow" (stockExchangeSaved)="stockExchangeSaved($event)"></app-admin-stock-exchange-create>
-  <app-admin-ipo-list *ngIf="ipoListShow"></app-admin-ipo-list>
-  <app-admin-ipo-create *ngIf="ipoCreateShow"></app-admin-ipo-create>
+  <app-admin-ipo-list *ngIf="ipoListShow" (createNewIPOClicked)="createNewIPOClicked($event)"></app-admin-ipo-list>
+  <app-admin-ipo-create *ngIf="ipoCreateShow" (IPOSaved)="IPOSaved($event)"></app-admin-ipo-create>
 </div>

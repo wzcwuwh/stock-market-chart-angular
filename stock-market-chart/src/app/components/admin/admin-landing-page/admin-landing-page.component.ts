@@ -151,4 +151,30 @@ export class AdminLandingPageComponent implements OnInit {
     this.ipoCreateShow = false
   }
 
+  createNewIPOClicked(e){
+    if(e){
+      this.importExcelShow = false
+      this.uploadSummaryShow = false
+      this.companyListShow = false
+      this.companyCreateShow = false
+      this.stockExchangeListShow = false
+      this.stockExchangeCreateShow = false
+      this.ipoListShow = false
+      this.ipoCreateShow = true
+    }
+  }
+
+  IPOSaved(e){
+    if(e){
+      this.importExcelShow = false
+      this.uploadSummaryShow = false
+      this.companyListShow = false
+      this.companyCreateShow = false
+      this.stockExchangeListShow = false
+      this.stockExchangeCreateShow = false
+      this.ipoListShow = true
+      this.ipoCreateShow = false
+    }
+  }
+
 }
