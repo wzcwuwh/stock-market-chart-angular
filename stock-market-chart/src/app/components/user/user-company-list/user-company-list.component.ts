@@ -28,6 +28,7 @@ export class UserCompanyListComponent implements OnInit, OnChanges {
             boardChairman: json.boardChairman,
             sector: json.sector,
             briefWriteup: json.briefWriteup,
+            latestStockPrice: json.currentPrice,
             logo: atob(json.logo)
           };
           this.companyList.push(tmpJson);

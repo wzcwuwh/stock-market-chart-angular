@@ -19,7 +19,7 @@ export class AdminStockExchangeListComponent implements OnInit {
     axios.get('http://localhost:7004/stock-exchange/list')
       .then(
         (response : any) => {
-          this.stockExchangeList = response.data.companies
+          this.stockExchangeList = response.data.stockExchanges
         }
       )
       .catch(

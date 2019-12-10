@@ -34,13 +34,9 @@ export class UserLandingPageComponent implements OnInit {
   constructor(public activatedRoute: ActivatedRoute, public router: Router) {}
 
   ngOnInit() {
-    if(!localStorage.getItem("username")){
       this.activatedRoute.queryParams.subscribe(params => {
-      this.username = params["username"];
-      localStorage.setItem("username", this.username)
+          this.username = params["username"];
       });
-    }
-    this.username = localStorage.getItem("username")
   }
 
   logout() {
@@ -52,7 +48,6 @@ export class UserLandingPageComponent implements OnInit {
         console.log(reponse.data)
         console.log(reponse.data.loginStatus) 
         if (reponse.data.loginStatus == false) {
-          localStorage.removeItem("username")
           this.router.navigateByUrl("/user/signin");
         }
       })

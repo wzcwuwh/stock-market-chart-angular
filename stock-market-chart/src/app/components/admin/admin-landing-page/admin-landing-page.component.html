@@ -19,8 +19,9 @@
                 <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i>User</a>
                 <div class="dropdown-menu" aria-labelledby="dropdownId">
-                    <a class="dropdown-item" href="#">Logout</a>
-                    <a class="dropdown-item" href="#">Profile</a>
+                    <a [routerLink]="" class="dropdown-item" (click)="updatePwd()">{{username}}</a>
+                    <a [routerLink]="" class="dropdown-item" (click)="logout()">Logout</a>
+                    <a [routerLink]="" class="dropdown-item" (click)="profile()">Profile</a>
                 </div>
             </li>
         </ul>

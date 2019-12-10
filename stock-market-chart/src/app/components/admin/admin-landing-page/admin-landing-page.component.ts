@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router'
+
+import axios from 'axios'
 
 @Component({
   selector: 'app-admin-landing-page',
@@ -23,11 +26,33 @@ export class AdminLandingPageComponent implements OnInit {
 
   public ipoCreateShow: boolean = false
 
-  constructor() { }
+  public username: string = ''
+
+  constructor(public activatedRoute: ActivatedRoute, public router: Router) { }
 
   ngOnInit() {
+    this.activatedRoute.queryParams.subscribe(params => {
+      this.username = params["username"];
+    });
   }
 
+  logout() {
+    axios
+      .post("http://localhost:7001/user/logout/", {
+        username: this.username
+      })
+      .then((reponse: any) => {
+        console.log(reponse.data)
+        console.log(reponse.data.loginStatus) 
+        if (reponse.data.loginStatus == false) {
+          this.router.navigateByUrl("/user/signin");
+        }
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+  
   uploadClicked(e){
     if(e == true){
       this.companyCreateShow = false
