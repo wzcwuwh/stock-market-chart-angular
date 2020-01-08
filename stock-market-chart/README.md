@@ -1,27 +1,63 @@
-# StockMarketChart
+# stock-market-chart
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.0.
+**(Table of Contents)**
 
-## Development server
+[TOCM]
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+[TOC]
 
-## Code scaffolding
+## Project Intro
+`stock-market-chart` is a full stack stock market system, using Spring Cloud Greenwich, Spring Boot 2, JPA, Mysql, Angular, to name just a few. It integrates registry center, config center, gateway, etc...
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## System Archi
 
-## Build
+## Organization Chart
+``` lua
+stock-market-chart
+├── stock-market-chart-common
+├── stock-market-chart-company
+├── stock-market-chart-excel
+├── stock-market-chart-mail
+├── stock-market-chart-sector
+├── stock-market-chart-security
+├── stock-market-chart-user
+├── stock-market-chart-exchange
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Tech Stack
 
-## Running unit tests
+### Backend Stack
+| tech            | desc         | official site                             |
+| ----------------| -------------| ------------------------------------------|
+| Spring Cloud    | microservice | https://spring.io/projects/spring-cloud   |
+| Spring Boot     | MVC framework| https://spring.io/projects/spring-boot    |
+| Spring Security | authen/author| https://spring.io/projects/spring-security|
+| JPA             | persistence  | https://spring.io/projects/spring-data-jpa|
+| Swagger-UI      | document gen | https://github.com/swagger-api/swagger-ui |
+| Docker          | container    | https://www.docker.com/                   |
+| Mysql           | DB           | https://www.mysql.com/                    |
+| JWT             | JWT token    | https://github.com/jwtk/jjwt              |
+| Lombok          | encap tool   | https://github.com/rzwitserloot/lombok    |
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Front End
+| tech            | desc         | official site                             |
+| ----------------| -------------| ------------------------------------------|
+| Angular 8       | front frame  | https://angularjs.org/                    |
+| Angular Router  | router frame | https://angular.io/api/router/Router      |
+| Bootstrap 4     | CSS toolkit  | https://getbootstrap.com/                 |
+| Font Awesome    | font toolkit | http://fontawesome.dashgame.com/          |
+| Axios           | http frame   | https://github.com/axios/axios            |
+| Echarts         | chart toolkit| https://www.echartsjs.com/en/index.html   |
 
-## Running end-to-end tests
+## Env Setup
+tool    | version | download
+--------| ------- | --------
+JDK     | 1.8     | https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+Mysql   | 8.0     | https://www.mysql.com/
+Angular | 8       | https://angularjs.org/ 
+node    | 11.11.0 | https://nodejs.org/en/
+npm     | 6.7.0   | https://www.npmjs.com/
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## License
+[Apache License 2.0]
+Copyright (c) 2019-2020 wzcwuwh
