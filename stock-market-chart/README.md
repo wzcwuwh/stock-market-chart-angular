@@ -1,10 +1,17 @@
 # stock-market-chart
 
-**(Table of Contents)**
+Table of Contents
+=================
 
-[TOCM]
-
-[TOC]
+   * [stock-market-chart](#stock-market-chart)
+      * [Project Intro](#project-intro)
+      * [System Archi](#system-archi)
+      * [Organization Chart](#organization-chart)
+      * [Tech Stack](#tech-stack)
+         * [Backend Stack](#backend-stack)
+         * [Front End](#front-end)
+      * [Env Setup](#env-setup)
+      * [License](#license)
 
 ## Project Intro
 `stock-market-chart` is a full stack stock market system, using Spring Cloud Greenwich, Spring Boot 2, JPA, Mysql, Angular, to name just a few. It integrates registry center, config center, gateway, etc...
