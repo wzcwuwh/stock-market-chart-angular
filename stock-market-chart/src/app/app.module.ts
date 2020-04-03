@@ -13,6 +13,7 @@ import { UserResetPwdComponent } from './components/user/user-reset-pwd/user-res
 import { UserForgetPwdComponent } from './components/user/user-forget-pwd/user-forget-pwd.component';
 import {EncryptService} from './services/encrypt.service'
 import {EmailValidationService} from './services/email-validation.service';
+import {HttpService} from './services/http.service';
 import { UserLandingPageComponent } from './components/user/user-landing-page/user-landing-page.component';
 import { UserComparisonChartsComponent } from './components/user/user-comparison-charts/user-comparison-charts.component';
 import { AdminLandingPageComponent } from './components/admin/admin-landing-page/admin-landing-page.component';
@@ -58,7 +59,7 @@ import { UserIpoListComponent } from './components/user/user-ipo-list/user-ipo-l
     FormsModule,
     NgxEchartsModule
   ],
-  providers: [EncryptService, EmailValidationService],
+  providers: [EncryptService, EmailValidationService, HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
